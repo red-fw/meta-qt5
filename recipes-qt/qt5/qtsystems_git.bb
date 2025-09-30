@@ -11,7 +11,6 @@ LIC_FILES_CHKSUM = " \
 
 DEPENDS += "qtbase qtdeclarative udev gconf"
 
-inherit bluetooth
 
 PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', 'bluez', '', d)}"
 PACKAGECONFIG[bluez] = "CONFIG+=OE_BLUEZ_ENABLED,,${BLUEZ}"
