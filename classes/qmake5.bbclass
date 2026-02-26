@@ -4,7 +4,7 @@
 inherit qmake5_base
 
 QT5TOOLSDEPENDS ?= "qtbase-native"
-DEPENDS_prepend = "${QT5TOOLSDEPENDS} "
+DEPENDS:prepend = "${QT5TOOLSDEPENDS} "
 
 do_configure() {
     qmake5_base_do_configure

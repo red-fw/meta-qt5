@@ -37,5 +37,5 @@ do_install() {
     chmod +x ${D}${bindir}/Qt5_CinematicExperience
 }
 
-FILES_${PN}-dbg += "${datadir}/${P}/.debug"
-FILES_${PN} += "${datadir}"
+FILES:${PN}-dbg += "${datadir}/${P}/.debug"
+FILES:${PN} += "${datadir}"

@@ -53,23 +53,23 @@ PACKAGES = "${PN}-tools-dbg ${PN}-tools-dev ${PN}-tools-staticdev ${PN}-tools"
 
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-without-src"
 
-FILES_${PN}-tools-dev = " \
+FILES:${PN}-tools-dev = " \
     ${includedir} \
     ${FILES_SOLIBSDEV} ${libdir}/*.la \
     ${libdir}/*.prl \
     ${OE_QMAKE_PATH_ARCHDATA}/mkspecs \
 "
 
-FILES_${PN}-tools-staticdev = " \
+FILES:${PN}-tools-staticdev = " \
     ${libdir}/libQt5Bootstrap.a \
 "
 
-FILES_${PN}-tools-dbg = " \
+FILES:${PN}-tools-dbg = " \
     ${libdir}/.debug \
     ${OE_QMAKE_PATH_BINS}/.debug \
 "
 
-FILES_${PN}-tools = " \
+FILES:${PN}-tools = " \
     ${libdir}/lib*${SOLIBS} \
     ${OE_QMAKE_PATH_BINS}/* \
     ${SDKPATHNATIVE}/environment-setup.d \
@@ -123,7 +123,7 @@ Sysroot =
 EOF
 }
 
-do_generate_qt_config_file_append() {
+do_generate_qt_config_file:append() {
     cat >> ${QT_CONF_PATH} <<EOF
 
 [EffectivePaths]
