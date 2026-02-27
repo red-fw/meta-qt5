@@ -20,9 +20,9 @@ GTKIMMODULES_PACKAGES = "${PN}-gtk"
 
 DEPENDS = "qtdeclarative"
 
-RRECOMMENDS_${PN} = "maliit-plugins-qt5"
+RRECOMMENDS:${PN} = "maliit-plugins-qt5"
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${libdir}/*.so* \
     ${bindir} \
     ${datadir}/applications/maliit-server.desktop \
@@ -30,12 +30,12 @@ FILES_${PN} += "\
     ${OE_QMAKE_PATH_PLUGINS}/platforminputcontexts \
 "
 
-FILES_${PN}-dbg += "\
+FILES:${PN}-dbg += "\
     ${libdir}/maliit-framework-tests \
     ${OE_QMAKE_PATH_PLUGINS}/platforminputcontexts/.debug \
 "
 
-FILES_${PN}-dev += "\
+FILES:${PN}-dev += "\
     ${includedir}/maliit \
     ${libdir}/pkgconfig \
     ${OE_QMAKE_PATH_QT_ARCHDATA}/mkspecs \
@@ -60,7 +60,7 @@ EXTRA_QMAKEVARS_PRE = "\
 
 EXTRA_OEMAKE += "INSTALL_ROOT=${D}"
 
-do_install_append() {
+do_install:append() {
     #Fix absolute paths
     sed -i -e "s|/usr|${STAGING_DIR_TARGET}${prefix}|" ${D}/${OE_QMAKE_PATH_QT_ARCHDATA}/mkspecs/features/maliit-framework.prf
     sed -i -e "s|/usr|${STAGING_DIR_TARGET}${prefix}|" ${D}/${OE_QMAKE_PATH_QT_ARCHDATA}/mkspecs/features/maliit-plugins.prf

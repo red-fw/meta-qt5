@@ -109,7 +109,7 @@ RDEPENDS_${PN} += " \
     qttranslations-qtxmlpatterns \
 "
 
-RRECOMMENDS_${PN} += " \
+RRECOMMENDS:${PN} += " \
     qtquickcontrols-qmlplugins \
     qttools-plugins \
 "
